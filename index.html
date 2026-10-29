@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>blitzdev — примеры сайтов и Telegram Mini App</title>
+  <meta name="description" content="Демо-проекты: лендинги для услуг с адаптивом и записью через Telegram, Mini App для онлайн-записи.">
+  <meta name="theme-color" content="#14142B">
+  <style>
+    @font-face { font-family: "Unbounded"; font-weight: 700; font-display: swap; src: url("assets/fonts/unbounded-latin-700-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Unbounded"; font-weight: 700; font-display: swap; src: url("assets/fonts/unbounded-cyrillic-700-normal.woff2") format("woff2"); unicode-range: U+0400-045F; }
+    @font-face { font-family: "Inter"; font-weight: 400; font-display: swap; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Inter"; font-weight: 400; font-display: swap; src: url("assets/fonts/inter-cyrillic-400-normal.woff2") format("woff2"); unicode-range: U+0400-045F; }
+    @font-face { font-family: "Inter"; font-weight: 600; font-display: swap; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Inter"; font-weight: 600; font-display: swap; src: url("assets/fonts/inter-cyrillic-600-normal.woff2") format("woff2"); unicode-range: U+0400-045F; }
+    :root { --bg: #14142B; --card: #1E1E3A; --line: #2E2E4F; --text: #FFFFFF; --muted: #A9ACCB; --accent: #FFD23F; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: radial-gradient(circle at 50% 0, #2B2B5E, var(--bg) 60%) fixed, var(--bg); color: var(--text); font: 400 16px/1.5 "Inter", system-ui, sans-serif; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+    header { padding: 56px 0 32px; }
+    .tag { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); font-weight: 600; font-size: 14px; letter-spacing: .04em; }
+    h1 { font: 700 clamp(28px, 5vw, 44px)/1.15 "Unbounded", sans-serif; margin: 14px 0 12px; max-width: 760px; }
+    .lead { color: var(--muted); max-width: 640px; margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding-bottom: 32px; }
+    .card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; color: inherit; text-decoration: none; transition: transform .2s, border-color .2s; }
+    .card:hover, .card:focus-visible { transform: translateY(-3px); border-color: var(--accent); outline: none; }
+    .card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #0E0E20; }
+    .card .body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .card b { font: 700 17px/1.3 "Unbounded", sans-serif; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; flex: 1; }
+    .card .open { margin-top: 8px; color: var(--accent); font-weight: 600; font-size: 14px; }
+    .card.app { border-color: rgba(255, 210, 63, .45); }
+    .chip { align-self: flex-start; font-size: 12px; font-weight: 600; color: #14142B; background: var(--accent); border-radius: 999px; padding: 2px 10px; }
+    footer { border-top: 1px solid var(--line); padding: 20px 0 32px; color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <span class="tag">
+      <svg width="12" height="18" viewBox="3 2 18 20" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="#FFD23F"/></svg>
+      BLITZDEV · САЙТЫ И TELEGRAM-БОТЫ
+    </span>
+    <h1>Примеры лендингов и Telegram Mini App</h1>
+    <p class="lead">Одностраничные сайты для услуг: адаптивная вёрстка под телефоны, прайс, запись через Telegram. Нажмите на карточку, чтобы открыть сайт.</p>
+  </header>
+
+  <main class="wrap grid">
+    <a class="card app" href="https://blitzdev78.github.io/barbershop-miniapp/" target="_blank" rel="noopener">
+      <img src="assets/img/miniapp.jpg" alt="Экран выбора времени в Mini App" loading="lazy">
+      <span class="body">
+        <span class="chip">Telegram Mini App</span>
+        <b>Онлайн-запись внутри Telegram</b>
+        <p>Услуга, свободное время и контакты за 4 шага. Запись приходит в бота, администратору и в Google Таблицу.</p>
+        <span class="open">Открыть демо →</span>
+      </span>
+    </a>
+    <a class="card" href="lezvie/">
+      <img src="assets/img/lezvie.jpg" alt="Лендинг барбершопа «Лезвие»" loading="lazy">
+      <span class="body"><b>Барбершоп «Лезвие»</b><p>Тёмный премиум-стиль, услуги и цены, запись через Telegram-бота.</p><span class="open">Открыть сайт →</span></span>
+    </a>
+    <a class="card" href="nail-studio/">
+      <img src="assets/img/nail-studio.jpg" alt="Лендинг студии маникюра «Мята»" loading="lazy">
+      <span class="body"><b>Студия маникюра «Мята»</b><p>Светлый «бьюти»-стиль, прайс и свободные окна для записи.</p><span class="open">Открыть сайт →</span></span>
+    </a>
+    <a class="card" href="english-tutor/">
+      <img src="assets/img/english-tutor.jpg" alt="Лендинг репетитора английского" loading="lazy">
+      <span class="body"><b>Английский с Анной</b><p>Сайт репетитора: форматы занятий, цены, запись на бесплатный урок.</p><span class="open">Открыть сайт →</span></span>
+    </a>
+    <a class="card" href="auto-service/">
+      <img src="assets/img/auto-service.jpg" alt="Лендинг автосервиса «Гараж 24»" loading="lazy">
+      <span class="body"><b>Автосервис «Гараж 24»</b><p>Тёмный «технический» стиль, прайс на работы, запись на время заезда.</p><span class="open">Открыть сайт →</span></span>
+    </a>
+    <a class="card" href="yoga-studio/">
+      <img src="assets/img/yoga-studio.jpg" alt="Лендинг йога-студии «Прана»" loading="lazy">
+      <span class="body"><b>Йога-студия «Прана»</b><p>Спокойный природный стиль, занятия и абонементы, запись в расписание.</p><span class="open">Открыть сайт →</span></span>
+    </a>
+  </main>
+
+  <footer class="wrap">Демо-проекты для портфолио: бренды, адреса и телефоны вымышленные.</footer>
+</body>
+</html>

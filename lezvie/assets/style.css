@@ -1,0 +1,228 @@
+/* ===== Шрифты (лежат локально в assets/fonts) ===== */
+@font-face { font-family: "Unbounded"; font-weight: 700; font-display: swap;
+  src: url("fonts/unbounded-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Unbounded"; font-weight: 700; font-display: swap;
+  src: url("fonts/unbounded-cyrillic-700-normal.woff2") format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Inter"; font-weight: 400; font-display: swap;
+  src: url("fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 400; font-display: swap;
+  src: url("fonts/inter-cyrillic-400-normal.woff2") format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Inter"; font-weight: 600; font-display: swap;
+  src: url("fonts/inter-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-display: swap;
+  src: url("fonts/inter-cyrillic-600-normal.woff2") format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+
+/* ===== Цвета и базовые настройки ===== */
+:root {
+  --bg: #1B1A17;
+  --bg-2: #24221E;
+  --card: #2B2924;
+  --line: #3A372F;
+  --text: #F4EADB;
+  --muted: #B5AC9C;
+  --gold: #E9C27A;
+  --gold-dark: #B8904F;
+  --radius: 18px;
+  --wrap: 1160px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 17px/1.6 "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--gold); }
+h1, h2, h3 { font-family: "Unbounded", system-ui, sans-serif; font-weight: 700; line-height: 1.12; margin: 0; letter-spacing: -0.01em; }
+p { margin: 0; }
+
+.wrap { width: min(100% - 32px, var(--wrap)); margin-inline: auto; }
+section { padding: 96px 0; scroll-margin-top: 72px; }
+.section-head { max-width: 640px; margin-bottom: 48px; }
+.eyebrow { color: var(--gold); font-weight: 600; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px; }
+h2 { font-size: clamp(28px, 4vw, 42px); }
+.section-head p { color: var(--muted); margin-top: 16px; }
+
+/* ===== Кнопки ===== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 26px; border-radius: 999px;
+  font: 600 16px/1 "Inter", sans-serif; text-decoration: none; cursor: pointer;
+  border: 2px solid transparent; transition: transform .15s ease, background .15s ease, color .15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-gold { background: var(--gold); color: #1B1A17; }
+.btn-gold:hover { background: #F2D18F; }
+.btn-ghost { border-color: var(--line); color: var(--text); }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.btn svg { width: 20px; height: 20px; flex: none; }
+
+/* ===== Шапка ===== */
+.header {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(27, 26, 23, 0.88); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 72px; }
+.logo { display: flex; align-items: center; gap: 12px; color: var(--text); text-decoration: none; }
+.logo svg { width: 46px; height: 18px; }
+.logo span { font: 700 20px/1 "Unbounded", sans-serif; letter-spacing: 0.04em; }
+.nav { display: flex; gap: 30px; }
+.nav a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; }
+.nav a:hover { color: var(--text); }
+.header .btn { min-height: 44px; padding: 0 20px; font-size: 15px; }
+
+/* ===== Первый экран ===== */
+.hero { padding: 72px 0 96px; position: relative; overflow: hidden; }
+.hero::before {
+  content: ""; position: absolute; width: 760px; height: 760px; right: -220px; top: -180px;
+  background: radial-gradient(circle, rgba(233, 194, 122, 0.14), transparent 62%);
+  pointer-events: none;
+}
+.hero .wrap { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; position: relative; }
+.hero h1 { font-size: clamp(36px, 5.6vw, 66px); }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero .lead { color: var(--muted); font-size: 19px; margin: 24px 0 36px; max-width: 540px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero-facts { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 40px; padding: 0; list-style: none; color: var(--muted); font-size: 15px; }
+.hero-facts li { display: flex; align-items: center; gap: 10px; }
+.hero-facts li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+
+.emblem {
+  aspect-ratio: 1; border-radius: 50%;
+  border: 2px solid rgba(233, 194, 122, 0.25);
+  background: radial-gradient(circle at 50% 40%, #2C2924, var(--bg) 68%);
+  display: grid; place-items: center; text-align: center; padding: 14%;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+}
+.emblem svg { width: 100%; height: auto; transform: rotate(-14deg); }
+.emblem .name { font: 700 clamp(28px, 4vw, 48px)/1 "Unbounded", sans-serif; letter-spacing: 0.05em; margin-top: 18px; }
+.emblem .sub { color: var(--gold); font-weight: 600; letter-spacing: 0.4em; font-size: 13px; margin-top: 12px; padding-left: 0.4em; }
+
+/* ===== Услуги ===== */
+.services { background: var(--bg-2); }
+.price-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.price {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  padding: 24px 28px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+}
+.price h3 { font: 600 19px/1.3 "Inter", sans-serif; }
+.price .time { color: var(--muted); font-size: 15px; margin-top: 4px; }
+.price .cost { font: 700 22px/1 "Unbounded", sans-serif; color: var(--gold); white-space: nowrap; }
+.services .note { color: var(--muted); font-size: 15px; margin-top: 28px; }
+
+/* ===== Как записаться ===== */
+.booking { overflow: hidden; }
+.booking .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.steps { list-style: none; padding: 0; margin: 36px 0 40px; display: grid; gap: 22px; counter-reset: step; }
+.steps li { display: flex; gap: 18px; counter-increment: step; }
+.steps li::before {
+  content: counter(step); flex: none; width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--gold); color: #1B1A17;
+  font: 700 18px/1 "Unbounded", sans-serif;
+}
+.steps h3 { font: 600 19px/1.3 "Inter", sans-serif; margin-bottom: 4px; }
+.steps p { color: var(--muted); font-size: 16px; }
+.phones { position: relative; height: 620px; }
+.phone {
+  position: absolute; width: 270px; height: 520px; border-radius: 36px; overflow: hidden;
+  border: 9px solid #34312A; background: #34312A; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+.phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.phone:nth-child(1) { left: 4%; top: 60px; transform: rotate(-4deg); }
+.phone:nth-child(2) { right: 4%; top: 20px; transform: rotate(3deg); }
+
+/* ===== Преимущества ===== */
+.why { background: var(--bg-2); }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.card { padding: 30px 26px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+.card svg { width: 34px; height: 34px; color: var(--gold); margin-bottom: 22px; }
+.card h3 { font: 600 19px/1.3 "Inter", sans-serif; margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: 16px; }
+
+/* ===== Вопросы ===== */
+.faq-list { max-width: 820px; display: grid; gap: 12px; }
+.faq-list details { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 0 26px; }
+.faq-list summary {
+  list-style: none; cursor: pointer; padding: 22px 36px 22px 0; position: relative;
+  font-weight: 600; font-size: 18px;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after {
+  content: "+"; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  font: 400 28px/1 "Inter", sans-serif; color: var(--gold); transition: transform .2s ease;
+}
+.faq-list details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq-list details p { color: var(--muted); padding-bottom: 22px; }
+
+/* ===== Контакты ===== */
+.contacts .box {
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0; overflow: hidden;
+  background: var(--card); border: 1px solid var(--line); border-radius: 26px;
+}
+.contacts .info { padding: 52px; }
+.contacts dl { margin: 32px 0 36px; display: grid; gap: 20px; }
+.contacts dt { color: var(--muted); font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; }
+.contacts dd { margin: 4px 0 0; font-size: 20px; font-weight: 600; }
+.contacts dd a { color: var(--text); text-decoration: none; }
+.contacts dd a:hover { color: var(--gold); }
+.map {
+  min-height: 360px; position: relative;
+  background:
+    linear-gradient(90deg, rgba(233, 194, 122, 0.06) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(rgba(233, 194, 122, 0.06) 1px, transparent 1px) 0 0 / 48px 48px,
+    #22201C;
+}
+.map .road { position: absolute; background: #2F2C26; }
+.map .r1 { left: 0; right: 0; top: 46%; height: 26px; }
+.map .r2 { top: 0; bottom: 0; left: 38%; width: 22px; }
+.map .pin {
+  position: absolute; left: 38%; top: 46%; transform: translate(-30%, -100%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.map .pin span { background: var(--gold); color: #1B1A17; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 10px; white-space: nowrap; }
+.map .pin svg { width: 34px; height: 34px; color: var(--gold); }
+.map .open { position: absolute; left: 24px; bottom: 24px; }
+
+/* ===== Подвал ===== */
+.footer { border-top: 1px solid var(--line); padding: 32px 0; color: var(--muted); font-size: 14px; }
+.footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+/* ===== Адаптив ===== */
+@media (max-width: 1000px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .booking .wrap { grid-template-columns: 1fr; gap: 24px; }
+  .phones { height: 560px; max-width: 560px; width: 100%; margin-inline: auto; }
+}
+@media (max-width: 820px) {
+  section { padding: 72px 0; }
+  .nav { display: none; }
+  .hero { padding: 40px 0 72px; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 48px; }
+  .emblem { max-width: 340px; width: 100%; margin-inline: auto; order: -1; }
+  .price-list { grid-template-columns: 1fr; }
+  .contacts .box { grid-template-columns: 1fr; }
+  .contacts .info { padding: 36px 26px; }
+}
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .header .btn span { display: none; }
+  .header .btn { width: 44px; padding: 0; }
+  .hero-actions .btn { width: 100%; }
+  .price { padding: 20px; }
+  .price h3 { font-size: 17px; }
+  .price .cost { font-size: 19px; }
+  .cards { grid-template-columns: 1fr; }
+  .phones { height: 430px; }
+  .phone { width: 172px; height: 360px; border-width: 6px; border-radius: 24px; }
+  .phone:nth-child(1) { left: 2%; top: 50px; }
+  .phone:nth-child(2) { right: 2%; top: 14px; }
+  .contacts .info .btn { width: 100%; }
+}
